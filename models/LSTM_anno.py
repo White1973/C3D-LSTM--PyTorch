@@ -29,7 +29,7 @@ class LSTM_anno(nn.Module):
         self.fc_final_score = nn.Linear(256,1)
 
     def forward(self, x):
-        state = None
-        lstm_output, state = self.rnn(x, state)
+        #state = None
+        lstm_output, state = self.rnn(x)
         final_score = self.fc_final_score(lstm_output[:,-1,:])
         return final_score
